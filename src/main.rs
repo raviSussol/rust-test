@@ -1,6 +1,5 @@
+use rust_test::add::add;
+
 fn main() {
-  let x = 3;
-  let y = 5;
-  let result = x + y;
-  println!("Addition: {}", result);
+    println!("Addition: {}", add(4, 5));
 }
