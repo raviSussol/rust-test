@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                ws("C:\\Users\Administrator\\.cargo\\bin") {
+                ws("C:\\Users\\Administrator\\.cargo\\bin") {
                     bat(/cargo --version/)
                 }
             }
