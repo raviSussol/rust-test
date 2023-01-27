@@ -1,20 +1,20 @@
 pipeline {
-    agent {
-        node {
-            customWorkspace "C:\Users\Administrator\.cargo\bin"
-        }
-    }
+    agent any
 
     stages {
         stage('Prepation') {
             steps {
-                // Setup cargo default stable version
-                bat(/rustup default stable/)
+                ws("C:\Users\Administrator\.cargo\bin") {
+                    // Setup cargo default stable version
+                    bat(/rustup default stable/)
+                }
             }
         }
         stage('Build') {
             steps {
-                bat(/"C:\Users\Administrator\.cargo\bin\cargo" --version/)
+                ws("C:\Users\Administrator\.cargo\bin") {
+                    bat(/cargo --version/)
+                }
             }
         }
     }
