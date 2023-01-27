@@ -38,7 +38,7 @@ pipeline {
         stage('Copy Archive') {
             steps {
                 step ([$class: 'CopyArtifact',
-                    projectName: 'p1',
+                    projectName: 'Create_archive',
                     filter: "target/**/rust-*.exe",
                     target: 'build'
                 ]);
