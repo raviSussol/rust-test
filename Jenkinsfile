@@ -2,23 +2,32 @@ pipeline {
     agent any
 
     stages {
-        def cargoHome
         stage('Prepation') {
-            cargoHome = "C:\\Users\\Administrator\\.cargo\\bin"
             steps {
-                // ws("C:\\Users\\Administrator\\.cargo\\bin") {
+                ws("C:\\Users\\Administrator\\.cargo\\bin") {
                     // Setup cargo default stable version
-                    // bat(/rustup default stable/)
-                // }
-                withEnv(["CG_HOME=$cargoHome"]) {
                     bat(/rustup default stable/)
+                }
+            }
+        }
+        stage('Lint') {
+            steps {
+                ws("C:\\Users\\Administrator\\.cargo\\bin") {
+                    bat(/cargo fmt -- --check/)
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                ws("C:\\Users\\Administrator\\.cargo\\bin") {
+                    bat(/cargo test/)
                 }
             }
         }
         stage('Build') {
             steps {
                 ws("C:\\Users\\Administrator\\.cargo\\bin") {
-                    bat(/cargo --version/)
+                    bat(/cargo build/)
                 }
             }
         }
