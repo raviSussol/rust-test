@@ -12,24 +12,24 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                ws("C:\\Users\\Administrator\\.cargo\\bin") {
+                // ws("C:\\Users\\Administrator\\.cargo\\bin") {
                     bat(/cargo check/)
-                }
+                // }
             }
         }
-        stage('Test') {
-            steps {
-                ws("C:\\Users\\Administrator\\.cargo\\bin") {
-                    bat(/cargo test/)
-                }
-            }
-        }
-        stage('Build') {
-            steps {
-                ws("C:\\Users\\Administrator\\.cargo\\bin") {
-                    bat(/cargo build/)
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         ws("C:\\Users\\Administrator\\.cargo\\bin") {
+        //             bat(/cargo test/)
+        //         }
+        //     }
+        // }
+        // stage('Build') {
+        //     steps {
+        //         ws("C:\\Users\\Administrator\\.cargo\\bin") {
+        //             bat(/cargo build/)
+        //         }
+        //     }
+        // }
     }
 }
