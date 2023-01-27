@@ -25,7 +25,7 @@ pipeline {
             post {
                 success {
                     // junit '**/target/surefire-reports/TEST-*.xml'
-                    // archiveArtifacts 'target/debug/rust-test.exe'
+                    archiveArtifacts 'target/debug/rust-test.exe'
                     stash name: "artifacts", includes: "artifacts/**/*"
                 }
             }
