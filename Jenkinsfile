@@ -38,9 +38,7 @@ pipeline {
         stage('Copy Archive') {
             steps {
                 step ([$class: 'CopyArtifact',
-                    projectName: 'p1',
-                    filter: "target/debug/rust-test.exe",
-                    target: 'build'
+                    projectName: 'p1'
                 ]);
             }
         }
