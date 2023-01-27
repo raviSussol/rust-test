@@ -1,7 +1,7 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent {
-        label 'rust'
+        docker { image 'rust:1.66.0-alpine' }
     }
 
     stages {
