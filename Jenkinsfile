@@ -1,7 +1,7 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent {
-        table 'rust'
+        lable 'rust'
     }
 
     stages {
