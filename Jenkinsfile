@@ -4,7 +4,7 @@ pipeline {
     stages {
         def cargoHome
         stage('Prepation') {
-            cargoHome = "C:\Users\Administrator\.cargo\bin"
+            cargoHome = tool "C:\Users\Administrator\.cargo\bin"
             steps {
                 withEnv(["CG_HOME=$cargoHome"]) {
                     bat(/"%CG_HOME%\rustup" default stable/)
