@@ -1,10 +1,11 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent 
+    agent any
+
     stages {
-        stage('Lint') {
+        stage('Hello') {
             steps {
-                sh 'echo "hi there"'
+                echo 'Hello World'
             }
         }
     }
