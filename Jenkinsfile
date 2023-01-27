@@ -39,7 +39,7 @@ pipeline {
             steps {
                 step ([$class: 'CopyArtifact',
                     projectName: 'p1',
-                    filter: 'target/**/rust-*.exe'
+                    filter: 'target/debug/rust-test.exe'
                 ]);
             }
         }
