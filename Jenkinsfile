@@ -13,7 +13,7 @@ pipeline {
         stage('Lint') {
             steps {
                 ws("C:\\Users\\Administrator\\.cargo\\bin") {
-                    bat(/cargo fmt -- --check/)
+                    bat(/cargo check/)
                 }
             }
         }
