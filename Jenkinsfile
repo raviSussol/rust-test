@@ -38,7 +38,7 @@ pipeline {
         stage('Copy Archive') {
             steps {
                 step ([$class: 'CopyArtifact',
-                    projectName: 'CopyArtifact'
+                    projectName: 'p1'
                 ]);
             }
         }
