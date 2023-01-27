@@ -6,7 +6,8 @@ pipeline {
             steps {
                 ws("C:\\Users\\Administrator\\.cargo\\bin") {
                     // Setup cargo default stable version
-                    bat(/rustup default stable/)
+                    // bat(/rustup default stable/)
+                    rustup default stable
                 }
             }
         }
