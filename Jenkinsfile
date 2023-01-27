@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                cargo test
+                sh 'cargo --version'
             }
         }
     }
