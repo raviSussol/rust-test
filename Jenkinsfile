@@ -22,6 +22,12 @@ pipeline {
             steps {
                 bat(/"C:\Users\Administrator\.cargo\bin\cargo" build/)
             }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
         }
     }
 }
