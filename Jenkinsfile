@@ -1,6 +1,8 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent {
+        table 'rust'
+    }
 
     stages {
         stage('Hello') {
