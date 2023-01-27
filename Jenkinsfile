@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'echo "hello there"'
+                bat("cargo --version")
             }
         }
     }
