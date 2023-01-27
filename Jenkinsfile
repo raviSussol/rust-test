@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Prepation') {
             steps {
-                ws("C:\Users\Administrator\.cargo\bin") {
+                ws("C:\\Users\\Administrator\\.cargo\\bin") {
                     // Setup cargo default stable version
                     bat(/rustup default stable/)
                 }
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                ws("C:\Users\Administrator\.cargo\bin") {
+                ws("C:\\Users\Administrator\\.cargo\\bin") {
                     bat(/cargo --version/)
                 }
             }
