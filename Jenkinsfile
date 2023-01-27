@@ -10,7 +10,17 @@ pipeline {
         }
         stage('Lint') {
             steps {
+                bat(/"C:\Users\Administrator\.cargo\bin\cargo" check/)
+            }
+        }
+        stage('Test') {
+            steps {
                 bat(/"C:\Users\Administrator\.cargo\bin\cargo" test/)
+            }
+        }
+        stage('Build') {
+            steps {
+                bat(/"C:\Users\Administrator\.cargo\bin\cargo" build/)
             }
         }
     }
