@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat(/"%CARGO_HOME\cargo%" --version/)
+                bat(/"C:\Users\Administrator\.cargo\bin\cargo" --version/)
             }
         }
     }
