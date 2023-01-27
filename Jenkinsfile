@@ -22,12 +22,26 @@ pipeline {
             steps {
                 bat(/"C:\Users\Administrator\.cargo\bin\cargo" build/)
             }
-            post {
-                success {
-                    // junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'artifacts/**/rust-test.exe'
-                    stash name: "artifacts", includes: "artifacts/**/*"
-                }
+            // post {
+            //     success {
+            //         // junit '**/target/surefire-reports/TEST-*.xml'
+            //         // archiveArtifacts 'target/**/rust-test.exe'
+            //         // stash name: "artifacts", includes: "artifacts/**/*"
+            //         ([$class: 'CopyArtifact',
+            //             projectName: '',
+            //             filter: '',
+            //             target: ''
+            //         ])
+            //     }
+            // }
+        }
+        stage('Copy Archive') {
+            steps {
+                step ([$class: 'CopyArtifact',
+                    projectName: 'Create_archive',
+                    filter: "target/**/rust-*.exe",
+                    target: 'build'
+                ]);
             }
         }
     }
