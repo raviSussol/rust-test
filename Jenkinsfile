@@ -6,15 +6,21 @@ pipeline {
     stages {
         stage('Checkout SCM') {
             steps {
-                checkout([
+                // checkout([
+                //     $class: 'GitSCM',
+                //     branches: [[name: 'main']],
+                //     userRemoteConfigs: [[
+                //         url: 'https://github.com/raviSussol/rust-test.git',
+                //         credentialsId: 'rust-test-cred-id',
+                //     ]]
+                // ])
+                checkout scm: [
                     $class: 'GitSCM',
-                    branches: [[name: 'main']],
                     userRemoteConfigs: [[
-                        // url: 'https://github.com/raviSussol/rust-test.git',
-                        url: 'git@github.com:raviSussol/rust-test.git',
-                        credentialsId: 'rust-test-cred-id',
-                    ]]
-                ])
+                        url: 'https://github.com/raviSussol/rust-test.git',
+                        credentialsId: 'rust-test-cred-id']],
+                        branches: [[name: 'refs/heads/main']]
+                ]
             }
         }
         stage('Prepation') {
