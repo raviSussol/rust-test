@@ -21,7 +21,7 @@ pipeline {
                     extensions: [[$class: 'CleanCheckout']],
                     submoduleCfg: [],
                     userRemoteConfigs: [[
-                        credentialsId: 'rust-test-cred-id',
+                        credentialsId: '8f9637c7-a256-4013-b10a-02ab5962891d',
                         url: 'https://github.com/raviSussol/rust-test.git'
                     ]]
                 ])
