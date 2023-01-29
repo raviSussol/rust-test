@@ -10,7 +10,8 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: 'main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/raviSussol/rust-test.git',
+                        // url: 'https://github.com/raviSussol/rust-test.git',
+                        url: 'git@github.com:raviSussol/rust-test.git',
                         credentialsId: 'rust-test-cred-id',
                     ]]
                 ])
