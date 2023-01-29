@@ -1,13 +1,13 @@
 pipeline {
     agent any
     environment {
-        CARGO_HOME = 'C:\\Users\\Administrator\\.cargo\\bin'
+        CG_HOME = 'C:\\Users\\Administrator\\.cargo\\bin'
     }
     stages {
         stage('Prepation') {
             steps {
                 // Setup cargo default stable version
-                bat(/"%CARGO_HOME%\rustup" default stable/)
+                bat(/"%CG_HOME%\rustup" default stable/)
             }
         }
         stage('Lint') {
