@@ -1,11 +1,13 @@
 pipeline {
     agent any
-
+    environment {
+        CARGO_HOME = 'C:\\Users\\Administrator\\.cargo\\bin'
+    }
     stages {
         stage('Prepation') {
             steps {
                 // Setup cargo default stable version
-                bat(/"C:\Users\Administrator\.cargo\bin\rustup" default stable/)
+                bat(/"%CARGO_HOME%\rustup" default stable/)
             }
         }
         stage('Lint') {
@@ -22,26 +24,26 @@ pipeline {
             steps {
                 bat(/"C:\Users\Administrator\.cargo\bin\cargo" build/)
             }
-            // post {
-            //     success {
+            post {
+                success {
             //         // junit '**/target/surefire-reports/TEST-*.xml'
-            //         // archiveArtifacts 'target/**/rust-test.exe'
+                    archiveArtifacts 'target/**/rust-*.exe'
             //         // stash name: "artifacts", includes: "artifacts/**/*"
             //         ([$class: 'CopyArtifact',
             //             projectName: '',
             //             filter: '',
             //             target: ''
             //         ])
-            //     }
-            // }
-        }
-        stage('Copy Archive') {
-            steps {
-                step ([$class: 'CopyArtifact',
-                    projectName: 'p1',
-                    filter: 'target/debug/rust-test.exe'
-                ]);
+                }
             }
         }
+        // stage('Copy Archive') {
+        //     steps {
+        //         step ([$class: 'CopyArtifact',
+        //             projectName: 'p1',
+        //             filter: 'target/debug/rust-test.exe'
+        //         ]);
+        //     }
+        // }
     }
 }
