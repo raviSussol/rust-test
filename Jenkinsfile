@@ -14,13 +14,17 @@ pipeline {
                 //         credentialsId: 'rust-test-cred-id',
                 //     ]]
                 // ])
-                checkout scm: [
+                checkout([
                     $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CleanCheckout']],
+                    submoduleCfg: [],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/raviSussol/rust-test.git',
-                        credentialsId: 'rust-test-cred-id']],
-                        branches: [[name: 'refs/heads/main']]
-                ]
+                        credentialsId: 'rust-test-cred-id',
+                        url: 'https://github.com/raviSussol/rust-test.git'
+                    ]]
+                ])
             }
         }
         stage('Prepation') {
