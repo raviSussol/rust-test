@@ -4,6 +4,18 @@ pipeline {
         CG_HOME = 'C:\\Users\\Administrator\\.cargo\\bin'
     }
     stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/raviSussol/rust-test.git',
+                        credentialsId: 'rust-test-cred-id',
+                    ]]
+                ])
+            }
+        }
         stage('Prepation') {
             steps {
                 // Setup cargo default stable version
@@ -17,12 +29,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat(/"C:\Users\Administrator\.cargo\bin\cargo" test/)
+                bat(/"%CG_HOME%\cargo" test/)
             }
         }
         stage('Build') {
             steps {
-                bat(/"C:\Users\Administrator\.cargo\bin\cargo" build/)
+                bat(/"%CG_HOME%\cargo" build/)
             }
             post {
                 success {
