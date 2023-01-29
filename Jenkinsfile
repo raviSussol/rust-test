@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                bat(/"C:\Users\Administrator\.cargo\bin\cargo" check/)
+                bat(/"%CG_HOME%\cargo" check/)
             }
         }
         stage('Test') {
