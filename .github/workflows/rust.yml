@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: rust-test
-          path: ./target/debug/rust-test.exe
+          path: ./target/**/rust-*.*
