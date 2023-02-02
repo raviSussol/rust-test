@@ -28,6 +28,6 @@ jobs:
       - run: cargo test --verbose
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
-          with:
-            name: rust-test
-            path: ./target/**/rust-*.exe
+        with:
+          name: rust-test
+          path: ./target/**/rust-*.exe
