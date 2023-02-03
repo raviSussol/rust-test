@@ -24,5 +24,10 @@ jobs:
         with:
           workspaces: backend
       - run: cargo check
-      - run: cargo build --verbose
       - run: cargo test --verbose
+      - run: cargo build --verbose
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: rust-test
+          path: ./target/**/rust-*.*
