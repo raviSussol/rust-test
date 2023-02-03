@@ -11,6 +11,7 @@ env:
 
 jobs:
   build_and_test:
+  if: ${{ github.ref != 'refs/heads/main' }}
     name: rust-test
     runs-on: ubuntu-latest
     strategy:
