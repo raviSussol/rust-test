@@ -2,17 +2,15 @@ name: Cargo build & test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
-env: 
+env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build_and_test:
-    # Skip generating bundle diff report for base branch (i.e. main)
-    if: ${{ github.ref != 'refs/heads/main' }}
     name: rust-test
     runs-on: ubuntu-latest
     strategy:
