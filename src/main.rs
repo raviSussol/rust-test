@@ -7,7 +7,7 @@ use rust_test::{
 fn main() {
     println!("Addition: {}", add(4, 5));
     println!("Substraction: {}", subtract(10, 3));
-    let file_path = "/Users/sussol/Downloads/HOSDID counts copy.txt";
+    let file_path = "test_file.txt";
 
     // Read file through buffer reader
     let contents1 = read_file_as_buffer_string(file_path).unwrap();
