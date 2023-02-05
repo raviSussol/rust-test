@@ -4,7 +4,7 @@ mod test_read_file {
 
     #[test]
     pub fn test_read_file_as_buffer_string_success() {
-        let file_path = "/Users/sussol/Downloads/HOSDID counts copy.txt";
+        let file_path = "test_file.txt";
         let contents = read_file_as_buffer_string(file_path).unwrap();
         assert_ne!(contents, "");
     }
@@ -19,7 +19,7 @@ mod test_read_file {
 
     #[test]
     pub fn test_read_file_as_string_success() {
-        let file_path = "/Users/sussol/Downloads/HOSDID counts copy.txt";
+        let file_path = "test_file.txt";
         let contents = read_file_as_string(file_path).unwrap();
         assert_ne!(contents, "");
     }
