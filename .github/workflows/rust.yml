@@ -23,9 +23,12 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: backend
-      - run: cargo check
-      - run: cargo test --verbose
-      - run: cargo build --verbose
+      - name: Linting...
+        run: cargo fmt --all -- --check
+      - name: Testing...
+        run: cargo test --verbose
+      - name: Building...
+        run: cargo build --verbose
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:

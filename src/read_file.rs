@@ -7,7 +7,7 @@ pub fn read_file_as_buffer_string(file_path: &str) -> Result<String, std::io::Er
 
     let contents = reader
         .lines()
-        .map(|line| line.unwrap_or("".to_string()))
+        .map(|line| line.unwrap_or_else(|_| "".to_string()))
         .collect();
     Ok(contents)
 }
